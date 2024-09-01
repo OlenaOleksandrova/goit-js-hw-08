@@ -105,7 +105,7 @@ const id = currentEl.dataset.id;
     console.log('id:', id);
 
 
-    const currentGallery = gallery.find(product => 
+    const currentGallery = gallery.find(item => 
         product.id === Number(id));
     
      console.log(currentGallery);
