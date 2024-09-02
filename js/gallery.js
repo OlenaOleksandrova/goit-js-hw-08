@@ -90,50 +90,59 @@ galleryContainer.innerHTML = galleryItemsMarkup;
 galleryContainer.addEventListener('click', onCardClick);
 
 function onCardClick(event) {
-    console.log(event.target);
+  // console.log(event.target);
+  if (event.target === event.currentTarget) {
+    console.log('Clsck on UL')
+    return;
+  }
+  const currentEl = event.target.closest('.gallery-item');
+  console.log(currentEl)
 
-
-
-    if (event.target === event.currentTarget) {
-        console.log('Click on ul');
-        return;
-    }
-
-
-const currentEl = event.target.closest('.gallery-item');
-const id = currentEl.dataset.id;
-    console.log('id:', id);
-
-
-    const currentGallery = gallery.find(item => 
-        product.id === Number(id));
-    
-     console.log(currentGallery);
-
-
-    const instance = basicLightbox.create(`
-    
- <div class="modal">
-        <img 
-        src="${preview}"
-          data-source="${original}"
-          alt="${description}"
-/>
-    </div>
-
+  const instance = basicLightbox.create(`
+    <img src="${event.target.dataset.source}" 
+              width="1112" height="640"/>
 `);
     
     
 instance.show();
+}
     
-    };
+
+
+
+    // if (event.target === event.currentTarget) {
+    //     console.log('Click on ul');
+    //     return;
+    // }
+
+
+// const currentEl = event.target.closest('.gallery-item');
+// const id = currentEl.dataset.id;
+//     console.log('id:', id);
+
+
+//     const currentGallery = gallery.find(product => 
+//         product.id === Number(id));
+    
+//      console.log(currentGallery);
+
+
+//     const instance = basicLightbox.create(`
+    
+//  <div class="modal">
+//         <img 
+//         src="${preview}"
+//           data-source="${original}"
+//           alt="${description}"
+// />
+//     </div>
+
+// `);
+    
+    
+// instance.show();
+    
+//     };
    
 
-
-
-
-    
- 
-
-
-console.log(basicLightbox)
+// console.log(basicLightbox)
