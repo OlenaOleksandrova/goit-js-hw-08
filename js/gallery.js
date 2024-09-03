@@ -90,6 +90,9 @@ galleryContainer.innerHTML = galleryItemsMarkup;
 galleryContainer.addEventListener('click', onCardClick);
 
 function onCardClick(event) {
+
+event.preventDefault();
+
   // console.log(event.target);
   if (event.target === event.currentTarget) {
     console.log('Clsck on UL')
